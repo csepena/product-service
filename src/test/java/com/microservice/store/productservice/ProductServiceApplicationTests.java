@@ -1,4 +1,4 @@
-package com.microservice.productservice;
+package com.microservice.store.productservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
