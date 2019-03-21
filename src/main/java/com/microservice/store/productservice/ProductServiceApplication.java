@@ -1,4 +1,4 @@
-package com.microservice.productservice;
+package com.microservice.store.productservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

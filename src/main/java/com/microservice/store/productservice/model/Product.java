@@ -1,14 +1,20 @@
-package com.microservice.productservice.model;
+package com.microservice.store.productservice.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
 public class Product implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column
     private String name;
 
+    @Column
     private String description;
 
     public Product() {

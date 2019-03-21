@@ -1,6 +1,6 @@
-package com.microservice.productservice.controller;
+package com.microservice.store.productservice.controller;
 
-import com.microservice.productservice.model.Product;
+import com.microservice.store.productservice.model.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
