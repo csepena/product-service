@@ -4,6 +4,7 @@ import com.microservice.store.productservice.model.Product;
 import com.microservice.store.productservice.repository.ProductRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
@@ -17,13 +18,15 @@ public class ProductController {
     private ProductRepository productRepository;
 
     @GetMapping(value = "/")
-    public List<Product> list() {
-        return productRepository.findAll();
+    public ResponseEntity<List<Product>> list() {
+        List<Product> products = productRepository.findAll();
+        return ResponseEntity.ok(products);
     }
 
     @GetMapping(value = "/{id}")
-    public Product get(@PathVariable Long id) {
-        return findByIdOrElseThrowException(id);
+    public ResponseEntity<Product> get(@PathVariable Long id) {
+        Product product = findByIdOrElseThrowException(id);
+        return ResponseEntity.ok(product);
     }
 
     @PostMapping(value = "/")
@@ -39,10 +42,10 @@ public class ProductController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public Product delete(@PathVariable Long id) {
+    public ResponseEntity<Product> delete(@PathVariable Long id) {
         Product product = findByIdOrElseThrowException(id);
         productRepository.delete(product);
-        return product;
+        return ResponseEntity.ok(product);
     }
 
     private Product findByIdOrElseThrowException(Long id) {
